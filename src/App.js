@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Content from "./components/Content/Content";
+import {BrowserRouter} from "react-router-dom";
+import {connect, Provider} from "react-redux";
+import store from "./redux/redux-store";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = ({blocks, getLastBlockNum}) => {
+    return (
+        <div className='wrapper'>
+            <Header/>
+            <Content blocks={blocks} />
+            <Footer/>
+        </div>
+    );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        blocks: state.EthBlock.blocks
+    }
+}
+
+const AppContainer = connect(mapStateToProps, {})(App);
+
+const EthereumExplorer = (props) => {
+    return <BrowserRouter>
+        <Provider store={store}>
+            <AppContainer />
+        </Provider>
+    </BrowserRouter>
+}
+
+export default EthereumExplorer;
+
