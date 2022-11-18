@@ -2,6 +2,7 @@ import Blocks from "./Blocks";
 import React from 'react';
 import {connect} from "react-redux";
 import {getBlockInfo} from "../../../redux/blocks-reducer";
+import Preloader from "../../common/Preloader/Preloader";
 
 class BlocksContainer extends React.Component {
 
