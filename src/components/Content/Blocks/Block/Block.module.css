@@ -7,58 +7,68 @@
     color: black;
 }
 .content {
-    font-size: 18px;
+    font-size: 20px;
 }
-.number {
+.blockInfo {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #133340;
+}
+.imgWrap {
+    margin-right: 20px;
+    display: flex;
+    max-width: 50px;
+}
+.imgCoin {
+    width: 100%;
+}
+.numberWrap {
+    position: relative;
+    top: -2px;
     font-size: 22px;
-    margin-bottom: 20px;
 }
-.info {
-    border-radius: 10px;
-    padding: 4px;
-    text-align: center;
-}
-.timeBlock {
-    border: 1px solid #133340;
-    margin-bottom: 5px;
-    border-radius: 10px;
-}
-.time {
-
-}
-.sizeBlock {
-    border-radius: 10px;
-    border: 1px solid #133340;
+.number {}
+.mainInfo {}
+.elemWrap {
+    display: flex;
+    align-items: center;
     margin-bottom: 5px;
 }
-.size {
-
+.elemImgWrap {
+    max-width: 35px;
+    margin-right: 10px;
 }
-.diffBlock {
-    border: 1px solid #133340;
-    border-radius: 10px;
-    margin-bottom: 5px;
+.img {
+    width: 100%;
 }
-.totalDifficulty {
-
+.text {
+    position: relative;
+    top: -2px;
 }
-.difficult {
+.text2 {
     font-size: 16px;
 }
-.transactBlock {
+.totalDiff {
+
+}
+.transactBtn {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 25px;
     border-radius: 10px;
     border: 1px solid #133340;
-    margin-bottom: 5px;
-    padding: 5px;
+    transition: all 0.3s ease 0s;
 }
-.transaction {
-    font-size: 20px;
-    background: none;
-    border: none;
-    color: black;
-    border-radius: 20px;
-    transition: all 0.2s ease 0s;
+.elemWrap:last-child {
+    margin-bottom: 0px;
+    margin-top: 20px;
 }
-.transaction:active {
-    background-color: rgba(255, 255, 255, 0.25);
+.text:last-child {
+    padding-block: 10px;
+}
+.transactBtn:active {
+    background-color: rgba(177, 234, 255, 0.58);
+    transform: scale(0.97);
 }

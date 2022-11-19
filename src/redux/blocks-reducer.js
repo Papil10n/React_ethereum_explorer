@@ -5,14 +5,16 @@ import {blockAPI} from "../api/api";
 const SET_LAST_BLOCK_NUM = 'eth-explorer/block/SET_LAST_BLOCK_NUM';
 const ADD_BLOCK = 'eth-explorer/block/ADD_BLOCK';
 const SET_LOADING_MODE = 'eth-explorer/block/SET_LOADING_MODE';
-const SET_ERROR = 'eth/explorer/block/SET_ERROR';
+const SET_ERROR = 'eth-explorer/block/SET_ERROR';
+const SHOW_TRANSACTIONS = 'eth-explorer/block/SHOW_TRANSACTIONS';
 
 // initial state
 let initialState = {
     blocks: [],
     lastBlockNum: null,
     isLoading: false,
-    isError: false
+    isError: false,
+    isTransactionsShowing: false,
 }
 
 // reducer
@@ -26,6 +28,8 @@ const blocksReducer = (state = initialState, action) => {
             return {...state, isLoading: action.mode}
         case SET_ERROR:
             return {...state, isError: action.mode}
+        case SHOW_TRANSACTIONS:
+            return {...state, isTransactionsShowing: action.mode}
         default:
             return state;
     }
@@ -36,6 +40,7 @@ export const setLastBlockNum = (number) => ({type: SET_LAST_BLOCK_NUM, number});
 export const addBlock = (block) => ({type: ADD_BLOCK, block});
 export const setLoadingMode = (mode) => ({type: SET_LOADING_MODE, mode});
 export const setError = (mode) => ({type: SET_ERROR, mode});
+export const showTransactions = (mode) => ({type: SHOW_TRANSACTIONS, mode});
 
 // thunk creator
 export const getBlockInfo = (BlockNumber) => async (dispatch) => {
@@ -44,7 +49,7 @@ export const getBlockInfo = (BlockNumber) => async (dispatch) => {
     let response = await blockAPI.getBlockInfo(BlockNumber);
     response ? dispatch(setLastBlockNum(response.number)) : dispatch(setError(true));
 
-    for (let i = response.number - 9; i <= response.number; i++) {
+    for (let i = response.number - 8; i <= response.number; i++) {
         let response = await blockAPI.getBlockInfo(i);
         dispatch(addBlock(response));
     }

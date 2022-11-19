@@ -1,7 +1,7 @@
 import Blocks from "./Blocks";
 import React from 'react';
 import {connect} from "react-redux";
-import {getBlockInfo} from "../../../redux/blocks-reducer";
+import {getBlockInfo, showTransactions} from "../../../redux/blocks-reducer";
 import Preloader from "../../common/Preloader/Preloader";
 import Warning from "../../common/Warning/Warning";
 
@@ -11,11 +11,12 @@ class BlocksContainer extends React.Component {
         this.props.getBlockInfo();
     }
 
-
     render() {
         {
             return this.props.isLoading ? <Preloader/> :
-                this.props.isError ? <Warning/> : <Blocks blocks={this.props.blocks}/>
+                this.props.isError ? <Warning/> :
+                    <Blocks blocks={this.props.blocks} isTransactionsShowing={this.props.isTransactionsShowing}
+                            showTransactions={this.props.showTransactions}/>
         }
     }
 }
@@ -23,8 +24,10 @@ class BlocksContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         isLoading: state.EthBlock.isLoading,
-        isError: state.EthBlock.isError
+        isError: state.EthBlock.isError,
+        isTransactionsShowing: state.EthBlock.isTransactionsShowing,
     }
 }
 
-export default connect(mapStateToProps, {getBlockInfo})(BlocksContainer);
+
+export default connect(mapStateToProps, {getBlockInfo, showTransactions})(BlocksContainer);
