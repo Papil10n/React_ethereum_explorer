@@ -5,9 +5,12 @@ import {BrowserRouter} from "react-router-dom";
 import {connect, Provider} from "react-redux";
 import store from "./redux/redux-store";
 import './App.css';
+import {blockAPI} from "./api/api";
+import Warning from "./components/common/Warning/Warning";
 
 
-const App = ({blocks, getLastBlockNum}) => {
+
+const App = ({blocks}) => {
     return (
         <div className='wrapper'>
             <Header/>
@@ -25,7 +28,9 @@ const mapStateToProps = (state) => {
 
 const AppContainer = connect(mapStateToProps, {})(App);
 
+
 const EthereumExplorer = (props) => {
+    blockAPI.setConnection();
     return <BrowserRouter>
         <Provider store={store}>
             <AppContainer />

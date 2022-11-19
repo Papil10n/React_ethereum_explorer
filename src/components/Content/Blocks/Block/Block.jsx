@@ -1,7 +1,6 @@
 import s from './Block.module.css';
 
 const Block = ({block}) => {
-    console.log(block)
     return (
         <div className={s.block}>
             <div className={s.content}>

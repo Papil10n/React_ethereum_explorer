@@ -5,23 +5,27 @@ import {blockAPI} from "../api/api";
 const SET_LAST_BLOCK_NUM = 'eth-explorer/block/SET_LAST_BLOCK_NUM';
 const ADD_BLOCK = 'eth-explorer/block/ADD_BLOCK';
 const SET_LOADING_MODE = 'eth-explorer/block/SET_LOADING_MODE';
+const SET_ERROR = 'eth/explorer/block/SET_ERROR';
 
 // initial state
 let initialState = {
     blocks: [],
     lastBlockNum: null,
     isLoading: false,
+    isError: false
 }
 
 // reducer
 const blocksReducer = (state = initialState, action) => {
-     switch (action.type) {
-         case SET_LAST_BLOCK_NUM:
+    switch (action.type) {
+        case SET_LAST_BLOCK_NUM:
             return {...state, lastBlockNum: action.number}
-         case ADD_BLOCK:
-             return {...state, blocks: [...state.blocks, action.block]}
-         case SET_LOADING_MODE:
-             return {...state, isLoading: action.mode}
+        case ADD_BLOCK:
+            return {...state, blocks: [...state.blocks, action.block]}
+        case SET_LOADING_MODE:
+            return {...state, isLoading: action.mode}
+        case SET_ERROR:
+            return {...state, isError: action.mode}
         default:
             return state;
     }
@@ -31,13 +35,14 @@ const blocksReducer = (state = initialState, action) => {
 export const setLastBlockNum = (number) => ({type: SET_LAST_BLOCK_NUM, number});
 export const addBlock = (block) => ({type: ADD_BLOCK, block});
 export const setLoadingMode = (mode) => ({type: SET_LOADING_MODE, mode});
+export const setError = (mode) => ({type: SET_ERROR, mode});
 
 // thunk creator
 export const getBlockInfo = (BlockNumber) => async (dispatch) => {
     dispatch(setLoadingMode(true));
-    let response = await blockAPI.getBlockInfo(BlockNumber);
 
-    dispatch(setLastBlockNum(response.number));
+    let response = await blockAPI.getBlockInfo(BlockNumber);
+    response ? dispatch(setLastBlockNum(response.number)) : dispatch(setError(true));
 
     for (let i = response.number - 9; i <= response.number; i++) {
         let response = await blockAPI.getBlockInfo(i);
@@ -48,7 +53,5 @@ export const getBlockInfo = (BlockNumber) => async (dispatch) => {
 }
 
 
-
-
 // export
- export default blocksReducer;
+export default blocksReducer;

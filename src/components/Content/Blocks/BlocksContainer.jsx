@@ -3,6 +3,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {getBlockInfo} from "../../../redux/blocks-reducer";
 import Preloader from "../../common/Preloader/Preloader";
+import Warning from "../../common/Warning/Warning";
 
 class BlocksContainer extends React.Component {
 
@@ -13,14 +14,16 @@ class BlocksContainer extends React.Component {
 
     render() {
         {
-            return this.props.isLoading ? <Preloader /> : <Blocks blocks={this.props.blocks}/>
+            return this.props.isLoading ? <Preloader/> :
+                this.props.isError ? <Warning/> : <Blocks blocks={this.props.blocks}/>
         }
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.EthBlock.isLoading
+        isLoading: state.EthBlock.isLoading,
+        isError: state.EthBlock.isError
     }
 }
 

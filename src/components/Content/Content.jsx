@@ -1,7 +1,7 @@
 import s from './Content.module.css';
 import BlocksContainer from "./Blocks/BlocksContainer";
 
-const Content = ({blocks, getLastBlockNum}) => {
+const Content = ({blocks}) => {
 
     return (
         <main className={s.main}>
