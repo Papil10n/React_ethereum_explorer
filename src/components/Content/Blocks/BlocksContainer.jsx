@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {getBlockInfo, showTransactions} from "../../../redux/blocks-reducer";
 import Preloader from "../../common/Preloader/Preloader";
 import Warning from "../../common/Warning/Warning";
+import {setAllBlockTransactions} from "../../../redux/transactions-reducer";
 
 class BlocksContainer extends React.Component {
 
@@ -17,7 +18,8 @@ class BlocksContainer extends React.Component {
                 this.props.isError ? <Warning/> :
                     <Blocks blockNumber={this.props.blockNumber} blocks={this.props.blocks}
                             isTransactionsShowing={this.props.isTransactionsShowing}
-                            showTransactions={this.props.showTransactions} />
+                            showTransactions={this.props.showTransactions}
+                    />
         }
     }
 }

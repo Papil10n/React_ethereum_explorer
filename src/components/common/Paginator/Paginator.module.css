@@ -1,0 +1,44 @@
+.pages {
+    display: flex;
+    justify-content: space-around;
+    max-width: 400px;
+    margin: 0 auto;
+
+}
+.selectedPage {
+    font-size: 18px;
+    display: inline-block;
+    margin-inline: 10px;
+    background-color: rgba(22, 191, 250, 0.5);
+    padding: 1px 9px;
+    border-radius: 50%;
+    border: 1px solid white;
+    font-family: Algerian;
+    cursor: pointer;
+}
+.defaultPage {
+    font-size: 20px;
+    display: inline-block;
+    margin-inline: 10px;
+    padding: 1px 9px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.toggleBtn {
+    padding: 3px 7px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 12px white;
+    line-height: 1.25;
+    background: #00168d;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease 0s;
+}
+.toggleBtn:hover {
+    cursor: pointer;
+    background-color: #1035ce;
+}
+.toggleBtn:active {
+    transform: scale(0.9);
+}

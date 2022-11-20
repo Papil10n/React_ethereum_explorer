@@ -1,10 +1,23 @@
 import s from './BlockTransactions.module.css';
 import transactionImg from './../../../image/transaction.png';
+import Paginator from "../../common/Paginator/Paginator";
 
-const BlockTransactions = ({blocks, blockNumber, showTransactions}) => {
+const BlockTransactions = ({
+                               blocks,
+                               blockNumber,
+                               showTransactions,
+                               currentPage,
+                               setCurrentPage
+                           }) => {
 
-    let block = [...blocks].find(block => block.number === blockNumber);
-    let transactions = block.transactions.map((item, index) => <div key={index}>{index+1}: {item}</div>)
+    const block = blocks.find(block => block.number === blockNumber);
+    const transactions = block.transactions.map((item, index) => <div key={index}>{index+1}: {item}</div>)
+    const initial = currentPage === 1 ? 0 : (currentPage-1) * 10;
+    const transactionPortion = transactions.slice(initial, currentPage * 10)
+
+    const onPageChanged = (e) => {
+        setCurrentPage(e)
+    }
 
     return (
         <div className={s.container}>
@@ -21,7 +34,10 @@ const BlockTransactions = ({blocks, blockNumber, showTransactions}) => {
                             <div className={s.blockNumber}>#{block.number}</div>
                         </div>
                         <div className={s.closeWrap}>
-                            <button className={s.close} onClick={()=>{showTransactions(false, null);}}>Close X</button>
+                            <button className={s.close} onClick={() => {
+                                showTransactions(false, null);
+                            }}>Close X
+                            </button>
                         </div>
                     </div>
                     <div className={s.mainInfo}>
@@ -36,7 +52,11 @@ const BlockTransactions = ({blocks, blockNumber, showTransactions}) => {
                             </div>
                         </div>
                         <div className={s.listWrap}>
-                                {transactions}
+                            {transactionPortion}
+                            <div className={s.buttonsWrap}>
+                                <Paginator totalItemsCount={block.transactions.length} pageSize={10}
+                                           onPageChanged={onPageChanged} currentPage={currentPage}/>
+                            </div>
                         </div>
                     </div>
                 </div>

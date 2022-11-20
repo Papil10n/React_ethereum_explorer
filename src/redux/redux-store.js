@@ -1,10 +1,12 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import blocksReducer from "./blocks-reducer";
 import thunkMiddleware from "redux-thunk";
+import transactionsReducer from "./transactions-reducer";
 
 
 let reducers = combineReducers({
-    EthBlock: blocksReducer
+    EthBlock: blocksReducer,
+    TransactionsBlock: transactionsReducer,
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

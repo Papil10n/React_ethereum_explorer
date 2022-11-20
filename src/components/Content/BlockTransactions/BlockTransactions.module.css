@@ -99,4 +99,25 @@
 .listWrap {
     width: 620px;
     margin: 0 auto;
+    padding-bottom: 30px;
+}
+.buttonsWrap {
+    margin-top: 20px;
+    text-align: center;
+}
+.page {
+    margin-inline: 5px;
+    border: 1px solid #133340;
+    padding: 2px 10px;
+    border-radius: 15px;
+    font-size: 17px;
+    transition: all 0.3s ease 0s;
+}
+.page:hover {
+    background-color: #18778C;
+    color: white;
+    font-weight: bold;
+}
+.page:active {
+    transform: rotate3d(300, 100, 100, 30deg);
 }
