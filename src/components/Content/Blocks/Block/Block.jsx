@@ -3,11 +3,13 @@ import coinImg from './../../../../image/coin.png';
 import timeImg from './../../../../image/time.png';
 import sizeImg from './../../../../image/size.png';
 import diffImg from './../../../../image/dfclt.png';
+import {NavLink} from "react-router-dom";
 
 const Block = ({block, showTransactions}) => {
     return (
         <div className={s.block}>
             <div className={s.content}>
+                <NavLink to={`/block/${block.number}`} className={s.blockBtn}>
                 <div className={s.blockInfo}>
                     <div className={s.imgWrap}>
                         <img className={s.img} src={coinImg} alt="Coin"/>
@@ -16,6 +18,7 @@ const Block = ({block, showTransactions}) => {
                         <div className={s.number}>{`EthBlock #${block.number}`}</div>
                     </div>
                 </div>
+                </NavLink>
                 <div className={s.mainInfo}>
                     <div className={s.elemWrap}>
                         <div className={s.elemImgWrap}>

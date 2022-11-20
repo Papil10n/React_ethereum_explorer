@@ -7,6 +7,7 @@ const ADD_BLOCK = 'eth-explorer/block/ADD_BLOCK';
 const SET_LOADING_MODE = 'eth-explorer/block/SET_LOADING_MODE';
 const SET_ERROR = 'eth-explorer/block/SET_ERROR';
 const SHOW_TRANSACTIONS = 'eth-explorer/block/SHOW_TRANSACTIONS';
+const RESET_BLOCKS = 'eth-explorer/block/RESET_BLOCKS';
 
 // initial state
 let initialState = {
@@ -31,6 +32,8 @@ const blocksReducer = (state = initialState, action) => {
             return {...state, isError: action.mode,}
         case SHOW_TRANSACTIONS:
             return {...state, isTransactionsShowing: action.mode, blockNumber: action.number}
+        case RESET_BLOCKS:
+            return {...state, blocks: []}
         default:
             return state;
     }
@@ -42,6 +45,7 @@ export const addBlock = (block) => ({type: ADD_BLOCK, block});
 export const setLoadingMode = (mode) => ({type: SET_LOADING_MODE, mode});
 export const setError = (mode) => ({type: SET_ERROR, mode});
 export const showTransactions = (mode, number) => ({type: SHOW_TRANSACTIONS, mode, number});
+export const resetBlocks = () => ({type: RESET_BLOCKS});
 
 // thunk creator
 export const getBlockInfo = (BlockNumber) => async (dispatch) => {
