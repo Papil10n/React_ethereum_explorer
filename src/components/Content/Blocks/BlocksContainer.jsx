@@ -15,8 +15,9 @@ class BlocksContainer extends React.Component {
         {
             return this.props.isLoading ? <Preloader/> :
                 this.props.isError ? <Warning/> :
-                    <Blocks blocks={this.props.blocks} isTransactionsShowing={this.props.isTransactionsShowing}
-                            showTransactions={this.props.showTransactions}/>
+                    <Blocks blockNumber={this.props.blockNumber} blocks={this.props.blocks}
+                            isTransactionsShowing={this.props.isTransactionsShowing}
+                            showTransactions={this.props.showTransactions} />
         }
     }
 }
@@ -26,6 +27,7 @@ const mapStateToProps = (state) => {
         isLoading: state.EthBlock.isLoading,
         isError: state.EthBlock.isError,
         isTransactionsShowing: state.EthBlock.isTransactionsShowing,
+        blockNumber: state.EthBlock.blockNumber,
     }
 }
 

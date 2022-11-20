@@ -6,7 +6,6 @@ import {connect, Provider} from "react-redux";
 import store from "./redux/redux-store";
 import './App.css';
 import {blockAPI} from "./api/api";
-import Warning from "./components/common/Warning/Warning";
 
 
 

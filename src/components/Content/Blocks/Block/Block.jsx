@@ -39,7 +39,7 @@ const Block = ({block, showTransactions}) => {
                         </div>
                     </div>
                     <div className={s.elemWrap}>
-                        <button onClick={()=>{showTransactions(true)}} className={s.transactBtn}>
+                        <button onClick={()=>{showTransactions(true, block.number)}} className={s.transactBtn}>
                             <div className={s.text}>Transactions</div>
                         </button>
                     </div>

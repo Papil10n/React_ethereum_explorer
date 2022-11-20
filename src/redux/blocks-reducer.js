@@ -15,6 +15,7 @@ let initialState = {
     isLoading: false,
     isError: false,
     isTransactionsShowing: false,
+    blockNumber: null,
 }
 
 // reducer
@@ -27,9 +28,9 @@ const blocksReducer = (state = initialState, action) => {
         case SET_LOADING_MODE:
             return {...state, isLoading: action.mode}
         case SET_ERROR:
-            return {...state, isError: action.mode}
+            return {...state, isError: action.mode,}
         case SHOW_TRANSACTIONS:
-            return {...state, isTransactionsShowing: action.mode}
+            return {...state, isTransactionsShowing: action.mode, blockNumber: action.number}
         default:
             return state;
     }
@@ -40,7 +41,7 @@ export const setLastBlockNum = (number) => ({type: SET_LAST_BLOCK_NUM, number});
 export const addBlock = (block) => ({type: ADD_BLOCK, block});
 export const setLoadingMode = (mode) => ({type: SET_LOADING_MODE, mode});
 export const setError = (mode) => ({type: SET_ERROR, mode});
-export const showTransactions = (mode) => ({type: SHOW_TRANSACTIONS, mode});
+export const showTransactions = (mode, number) => ({type: SHOW_TRANSACTIONS, mode, number});
 
 // thunk creator
 export const getBlockInfo = (BlockNumber) => async (dispatch) => {
@@ -49,7 +50,7 @@ export const getBlockInfo = (BlockNumber) => async (dispatch) => {
     let response = await blockAPI.getBlockInfo(BlockNumber);
     response ? dispatch(setLastBlockNum(response.number)) : dispatch(setError(true));
 
-    for (let i = response.number - 8; i <= response.number; i++) {
+    for (let i = response.number - 6; i < response.number; i++) {
         let response = await blockAPI.getBlockInfo(i);
         dispatch(addBlock(response));
     }
