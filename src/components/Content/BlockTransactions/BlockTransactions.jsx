@@ -10,7 +10,8 @@ const BlockTransactions = ({
                                currentPage,
                                setCurrentPage,
                                setPortion,
-                               resetPortion
+                               resetPortion,
+                               hideTransactions
                            }) => {
 
     const block = blocks.find(block => block.number === blockNumber);
@@ -23,14 +24,9 @@ const BlockTransactions = ({
         setCurrentPage(e)
     }
 
-    const test = () => {
-        console.log('blured');
-    }
-
-
     return (
         <div className={s.container}>
-            <div onBlur={test} className={s.transactions}>
+            <div className={s.transactions}>
                 <div className={s.content}>
                     <div className={s.topInfo}>
                         <div className={s.imgWrap}>
@@ -43,11 +39,7 @@ const BlockTransactions = ({
                             <div className={s.blockNumber}>#{block.number}</div>
                         </div>
                         <div className={s.closeWrap}>
-                            <button className={s.close} onClick={() => {
-                                showTransactions(false, null);
-                                resetPortion()
-                            }}>Close X
-                            </button>
+                            <button className={s.close} onClick={()=>{hideTransactions(false); resetPortion()}}>Close X</button>
                         </div>
                     </div>
                     <div className={s.mainInfo}>

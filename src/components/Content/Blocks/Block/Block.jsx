@@ -6,6 +6,7 @@ import diffImg from './../../../../image/dfclt.png';
 import {NavLink} from "react-router-dom";
 
 const Block = ({block, showTransactions}) => {
+
     return (
         <div className={s.block}>
             <div className={s.content}>

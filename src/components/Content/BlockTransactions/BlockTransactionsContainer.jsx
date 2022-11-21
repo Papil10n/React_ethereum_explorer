@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import BlockTransactions from "./BlockTransactions";
-import {showTransactions} from "../../../redux/blocks-reducer";
+import {hideTransactions, showTransactions} from "../../../redux/blocks-reducer";
 import {resetPortion, setCurrentPage, setPortion} from "../../../redux/transactions-reducer";
 
 const mapStateToProps = (state) => {
@@ -14,7 +14,8 @@ const BlockTransactionsContainer = connect(mapStateToProps, {
     showTransactions,
     setCurrentPage,
     setPortion,
-    resetPortion
+    resetPortion,
+    hideTransactions
 })(BlockTransactions);
 
 export default BlockTransactionsContainer;

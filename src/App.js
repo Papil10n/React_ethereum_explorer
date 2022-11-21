@@ -10,6 +10,7 @@ import Warning from "./components/common/Warning/Warning";
 
 
 const App = ({blocks}) => {
+    console.log('app renedered')
     return (
         <div className='wrapper'>
             <Header/>
