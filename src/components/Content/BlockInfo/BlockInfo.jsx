@@ -5,8 +5,7 @@ import bchImg_2 from './../../../image/blockchain_2.png';
 import bchImg_3 from './../../../image/blockchain_3.png';
 import {NavLink} from "react-router-dom";
 
-const BlockInfo = ({block})  => {
-    console.log(block)
+const BlockInfo = ({block}) => {
     return (
         <div className={s.blockInfo}>
             <div className={s.container}>

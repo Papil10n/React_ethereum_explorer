@@ -2,9 +2,7 @@ import s from './Content.module.css';
 import BlocksContainer from "./Blocks/BlocksContainer";
 import {Route, Routes} from "react-router-dom";
 import Warning from "../common/Warning/Warning";
-import BlockInfo from "./BlockInfo/BlockInfo";
 import {CSSTransition} from "react-transition-group";
-import BlockInfoContainer from "./BlockInfo/BlockInfoContainer";
 import BlockInfoSuperContainer from "./BlockInfo/BlockInfoContainer";
 
 const Content = ({blocks}) => {
@@ -19,7 +17,7 @@ const Content = ({blocks}) => {
                     <Route path='/block/*' element={
                         <CSSTransition in={!!url.match(/block/)} classNames="alert" timeout={300}
                                        unmountOnExit>
-                            <BlockInfoSuperContainer />
+                            <BlockInfoSuperContainer/>
                         </CSSTransition>
                     }/>
                 </Routes>

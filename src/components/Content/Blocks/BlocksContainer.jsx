@@ -9,13 +9,14 @@ import {
     showTransactions
 } from "../../../redux/blocks-reducer";
 import Preloader from "../../common/Preloader/Preloader";
-import { Navigate } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 
 class BlocksContainer extends React.Component {
 
     componentDidMount() {
         this.props.getBlocks();
     }
+
     componentWillUnmount() {
         this.props.resetBlocks();
     }
@@ -24,7 +25,7 @@ class BlocksContainer extends React.Component {
     render() {
         {
             return this.props.isLoading ? <Preloader/> :
-                this.props.isError ? <Navigate to="/warning" /> :
+                this.props.isError ? <Navigate to="/warning"/> :
                     <Blocks blocks={this.props.blocks}
                             isTransactionsShowing={this.props.isTransactionsShowing}
                             showTransactions={this.props.showTransactions}
@@ -44,4 +45,10 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {getBlocks, setBlockNumber, showTransactions, resetBlocks, hideTransactions})(BlocksContainer);
+export default connect(mapStateToProps, {
+    getBlocks,
+    setBlockNumber,
+    showTransactions,
+    resetBlocks,
+    hideTransactions
+})(BlocksContainer);

@@ -18,4 +18,5 @@ const BlockTransactionsContainer = connect(mapStateToProps, {
     hideTransactions
 })(BlockTransactions);
 
+
 export default BlockTransactionsContainer;

@@ -70,3 +70,18 @@
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 699px) {
+    .categoryText {
+        font-size: 10px;
+    }
+    .titleWrap, .number, .text {
+        font-size: 14px;
+    }
+    .mainImg {
+        width: 35px;
+    }
+    .img {
+        width: 20px;
+    }
+
+}

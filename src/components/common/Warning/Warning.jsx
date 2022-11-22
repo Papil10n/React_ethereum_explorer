@@ -1,7 +1,7 @@
 import s from './Warning.module.css';
 import downloadIco from './../../../image/downloadArrowIcon.png';
 
-const Warning = (props) => {
+const Warning = () => {
     return (
         <div className={s.warning}>
             <div className={s.container}>
@@ -14,7 +14,7 @@ const Warning = (props) => {
                 <div className={s.imageWrap}>
                     <img className={s.img}
                          src="https://www.ledger.com/wp-content/uploads/2019/06/assets_logo_metamask.jpg"
-                         alt="MetaMask" />
+                         alt="MetaMask"/>
                 </div>
                 <div className={s.linkWrap}>
                     <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"

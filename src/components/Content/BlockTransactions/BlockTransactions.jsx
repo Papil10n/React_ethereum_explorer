@@ -1,12 +1,10 @@
 import s from './BlockTransactions.module.css';
 import transactionImg from './../../../image/transaction.png';
 import Paginator from "../../common/Paginator/Paginator";
-import {useEffect, useRef} from "react";
 
 const BlockTransactions = ({
                                blocks,
                                blockNumber,
-                               showTransactions,
                                currentPage,
                                setCurrentPage,
                                setPortion,
@@ -15,8 +13,8 @@ const BlockTransactions = ({
                            }) => {
 
     const block = blocks.find(block => block.number === blockNumber);
-    const transactions = block.transactions.map((item, index) => <div key={index}>{index+1}: {item}</div>)
-    const initial = currentPage === 1 ? 0 : (currentPage-1) * 10;
+    const transactions = block.transactions.map((item, index) => <div key={index}>{index + 1}: {item}</div>)
+    const initial = currentPage === 1 ? 0 : (currentPage - 1) * 10;
     let transactionPortion = transactions.slice(initial, currentPage * 10);
     setPortion(transactionPortion)
 
@@ -39,7 +37,11 @@ const BlockTransactions = ({
                             <div className={s.blockNumber}>#{block.number}</div>
                         </div>
                         <div className={s.closeWrap}>
-                            <button className={s.close} onClick={()=>{hideTransactions(false); resetPortion()}}>Close X</button>
+                            <button className={s.close} onClick={() => {
+                                hideTransactions(false);
+                                resetPortion()
+                            }}>Close X
+                            </button>
                         </div>
                     </div>
                     <div className={s.mainInfo}>

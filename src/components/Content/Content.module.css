@@ -2,10 +2,14 @@
     flex: 1 0 600px;
     background-color: #f6f6f6;
     padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container {
     max-width: 1100px;
     margin: 0 auto;
+    margin-inline: 15px;
 }
 .title {
     text-align: center;

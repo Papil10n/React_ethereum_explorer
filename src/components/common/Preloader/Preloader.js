@@ -1,6 +1,6 @@
 import preloader from './preloader.gif';
 
-const Preloader = (props) => {
+const Preloader = () => {
     return (
         <div style={{textAlign: "center"}}>
             <img src={preloader}/>

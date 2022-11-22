@@ -10,14 +10,16 @@
     top: 80px;
     border: 2px solid black;
     background-color: #e7e7ff;
-    width: 900px;
+    max-width: 900px;
     margin: 0 auto;
     border-radius: 20px;
+    margin-inline: 30px;
 }
 .content {
     margin-top: 5px;
     display: flex;
     flex-direction: column;
+    margin-inline: 15px;
 }
 .topInfo {
     display: grid;
@@ -96,7 +98,7 @@
     font-family: Arial;
 }
 .listWrap {
-    width: 620px;
+    max-width: 620px;
     margin: 0 auto;
     padding-bottom: 30px;
 }
@@ -119,4 +121,37 @@
 }
 .page:active {
     transform: rotate3d(300, 100, 100, 30deg);
+}
+
+@media (max-width: 799px) {
+    .img {
+        width: 40px;
+    }
+    .rootHash span {
+        display: block;
+    }
+    .rootHash {
+        font-size: 12px;
+        text-align: center;
+    }
+    .listWrap div {
+        font-size: 12px;
+    }
+    .listWrap {
+        text-align: center;
+    }
+}
+@media (max-width: 540px) {
+    .mainInfo, .blockNumber {
+        position: absolute;
+        visibility: hidden;
+    }
+    .topInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-block: 5px;
+    }
 }

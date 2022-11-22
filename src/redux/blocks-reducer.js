@@ -80,7 +80,6 @@ export const getBlocks = (BlockNumber) => async (dispatch) => {
 export const getBlockInfo = (BlockNumber) => async (dispatch) => {
     let response = await blockAPI.getBlockInfo(BlockNumber);
     dispatch(setBlock(response));
-
 }
 
 // export

@@ -5,9 +5,10 @@ import BlockTransactionsContainer from "../BlockTransactions/BlockTransactionsCo
 import {CSSTransition} from "react-transition-group";
 
 const Blocks = ({blocks, showTransactions, isTransactionsShowing, setBlockNumber}) => {
-    let blockItems = blocks.map(block => <Block key={block.number} setBlockNumber={setBlockNumber} showTransactions={showTransactions} block={block}/>)
 
-
+    let blockItems = blocks.map(block => <Block key={block.number} setBlockNumber={setBlockNumber}
+                                                showTransactions={showTransactions} block={block}/>)
+    
     return (
         <div className={s.blocks}>
             <CSSTransition in={isTransactionsShowing} classNames="alert" timeout={300} unmountOnExit>

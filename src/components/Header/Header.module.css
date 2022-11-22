@@ -3,13 +3,18 @@
     background-color: #18778C;
     max-height: 70px;
     color: #D7D7D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container {
     max-width: 1024px;
     margin: 0 auto;
+
 }
 .title {
-    text-align: center;
     font-size: 24px;
     font-weight: 500;
+    position: relative;
+    top: -5px;
 }

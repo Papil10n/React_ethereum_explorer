@@ -16,6 +16,7 @@
     box-shadow: 0px 5px 5px rgba(1, 54, 187, 0.28);
     background-color: #18778C;
     color: white;
+    margin-inline: 15px;
 }
 .title {
     margin-bottom: 20px;
