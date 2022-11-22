@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/React_ethereum_explorer/static/css/main.e6a7a4d7.css",
+    "main.js": "/React_ethereum_explorer/static/js/main.fb021584.js",
+    "static/js/787.b159d562.chunk.js": "/React_ethereum_explorer/static/js/787.b159d562.chunk.js",
+    "static/media/blockchain_3.png": "/React_ethereum_explorer/static/media/blockchain_3.0d20a80a27d52872a951.png",
+    "static/media/preloader.gif": "/React_ethereum_explorer/static/media/preloader.193ccc0245ddce8063e7.gif",
+    "static/media/blockchain_1.png": "/React_ethereum_explorer/static/media/blockchain_1.37738c71f1fea4e4f2ea.png",
+    "static/media/transaction.png": "/React_ethereum_explorer/static/media/transaction.5378bd24cc3469794be5.png",
+    "static/media/blockchain_2.png": "/React_ethereum_explorer/static/media/blockchain_2.4b5deabaaaa82a67100d.png",
+    "index.html": "/React_ethereum_explorer/index.html",
+    "main.e6a7a4d7.css.map": "/React_ethereum_explorer/static/css/main.e6a7a4d7.css.map",
+    "main.fb021584.js.map": "/React_ethereum_explorer/static/js/main.fb021584.js.map",
+    "787.b159d562.chunk.js.map": "/React_ethereum_explorer/static/js/787.b159d562.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6a7a4d7.css",
+    "static/js/main.fb021584.js"
+  ]
+}
