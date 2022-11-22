@@ -9,6 +9,8 @@ const SHOW_TRANSACTIONS = 'eth-explorer/block/SHOW_TRANSACTIONS';
 const RESET_BLOCKS = 'eth-explorer/block/RESET_BLOCKS';
 const HIDE_TRANSACTIONS = 'eth-explorer/block/HIDE_TRANSACTIONS';
 const SET_ALL_BLOCKS = 'eth-explorer/block/SET_ALL_BLOCKS';
+const SET_BLOCK_NUMBER = 'eth-explorer/block/SET_BLOCK_NUMBER';
+const SET_BLOCK = 'eth-explorer/block/SET_BLOCK';
 
 // initial state
 let initialState = {
@@ -17,7 +19,8 @@ let initialState = {
     isLoading: false,
     isError: false,
     isTransactionsShowing: false,
-    blockNumber: null,
+    blockNumberToTransactions: null,
+    blockNumberToInfo: null,
 }
 
 // reducer
@@ -32,9 +35,13 @@ const blocksReducer = (state = initialState, action) => {
         case SET_ERROR:
             return {...state, isError: action.mode,}
         case SHOW_TRANSACTIONS:
-            return {...state, isTransactionsShowing: action.mode, blockNumber: action.number}
+            return {...state, isTransactionsShowing: action.mode, blockNumberToTransactions: action.number}
         case HIDE_TRANSACTIONS:
             return {...state, isTransactionsShowing: action.mode}
+        case SET_BLOCK_NUMBER:
+            return {...state, blockNumberToInfo: action.number}
+        case SET_BLOCK:
+            return {...state, blocks: [action.block]}
         case RESET_BLOCKS:
             return {...state, blocks: []}
         default:
@@ -45,14 +52,16 @@ const blocksReducer = (state = initialState, action) => {
 // action creator
 export const setLastBlockNum = (number) => ({type: SET_LAST_BLOCK_NUM, number});
 export const setAllBlock = (blocks) => ({type: SET_ALL_BLOCKS, blocks});
+export const setBlock = (block) => ({type: SET_BLOCK, block});
 export const setLoadingMode = (mode) => ({type: SET_LOADING_MODE, mode});
 export const setError = (mode) => ({type: SET_ERROR, mode});
 export const showTransactions = (mode, number) => ({type: SHOW_TRANSACTIONS, mode, number});
 export const hideTransactions = (mode) => ({type: HIDE_TRANSACTIONS, mode});
 export const resetBlocks = () => ({type: RESET_BLOCKS});
+export const setBlockNumber = (number) => ({type: SET_BLOCK_NUMBER, number});
 
 // thunk creator
-export const getBlockInfo = (BlockNumber) => async (dispatch) => {
+export const getBlocks = (BlockNumber) => async (dispatch) => {
     dispatch(setLoadingMode(true));
 
     let response = await blockAPI.getBlockInfo(BlockNumber);
@@ -68,6 +77,11 @@ export const getBlockInfo = (BlockNumber) => async (dispatch) => {
     dispatch(setLoadingMode(false));
 }
 
+export const getBlockInfo = (BlockNumber) => async (dispatch) => {
+    let response = await blockAPI.getBlockInfo(BlockNumber);
+    dispatch(setBlock(response));
+
+}
 
 // export
 export default blocksReducer;

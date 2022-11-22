@@ -5,11 +5,11 @@ import sizeImg from './../../../../image/size.png';
 import diffImg from './../../../../image/dfclt.png';
 import {NavLink} from "react-router-dom";
 
-const Block = ({block, showTransactions}) => {
-
+const Block = ({block, showTransactions, setBlockNumber}) => {
     return (
         <div className={s.block}>
             <div className={s.content}>
+                <button className={s.blockBtn} onClick={()=>{setBlockNumber(block.number)}}>
                 <NavLink to={`/block/${block.number}`} className={s.blockBtn}>
                 <div className={s.blockInfo}>
                     <div className={s.imgWrap}>
@@ -20,6 +20,7 @@ const Block = ({block, showTransactions}) => {
                     </div>
                 </div>
                 </NavLink>
+                </button>
                 <div className={s.mainInfo}>
                     <div className={s.elemWrap}>
                         <div className={s.elemImgWrap}>

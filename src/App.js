@@ -10,7 +10,7 @@ import Warning from "./components/common/Warning/Warning";
 
 
 const App = ({blocks}) => {
-    console.log('app renedered')
+    console.log('app rendered')
     return (
         <div className='wrapper'>
             <Header/>
@@ -31,7 +31,7 @@ const AppContainer = connect(mapStateToProps, {})(App);
 
 const EthereumExplorer = (props) => {
     blockAPI.setConnection();
-    return <BrowserRouter>
+    return <BrowserRouter basename='/React_ethereum_explorer'>
         <Provider store={store}>
             <AppContainer/>
         </Provider>

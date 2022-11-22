@@ -5,7 +5,7 @@ import {resetPortion, setCurrentPage, setPortion} from "../../../redux/transacti
 
 const mapStateToProps = (state) => {
     return {
-        blockNumber: state.EthBlock.blockNumber,
+        blockNumber: state.EthBlock.blockNumberToTransactions,
         currentPage: state.TransactionsBlock.currentPage
     }
 }

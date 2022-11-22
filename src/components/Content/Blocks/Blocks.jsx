@@ -4,8 +4,8 @@ import Block from "./Block/Block";
 import BlockTransactionsContainer from "../BlockTransactions/BlockTransactionsContainer";
 import {CSSTransition} from "react-transition-group";
 
-const Blocks = ({blocks, showTransactions, isTransactionsShowing, hideTransactions}) => {
-    let blockItems = blocks.map(block => <Block key={block.number} showTransactions={showTransactions} block={block}/>)
+const Blocks = ({blocks, showTransactions, isTransactionsShowing, setBlockNumber}) => {
+    let blockItems = blocks.map(block => <Block key={block.number} setBlockNumber={setBlockNumber} showTransactions={showTransactions} block={block}/>)
 
 
     return (

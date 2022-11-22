@@ -1,0 +1,72 @@
+.blockInfo {
+    margin-top: 20px;
+}
+.container {
+    margin-inline: 15px;
+}
+.titleWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 40px;
+    margin-bottom: 20px;
+}
+.imgWrap {
+    width: 50px;
+    margin-right: 10px;
+}
+.mainImg {
+    width: 50px;
+}
+.img {
+    margin-right: 20px;
+    width: 35px;
+}
+.text {
+    position: relative;
+    font-size: 20px;
+    top: -4px;
+    margin-right: 5px;
+}
+.number {
+    position: relative;
+    font-size: 18px;
+    top: -2px;
+}
+.buttonWrap {
+    flex: 0 1 570px;
+    text-align: right;
+}
+.button {
+
+}
+.infoWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.category {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.categoryText {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.left {
+    margin-right: 20px;
+}
+.right {
+    margin-left: 20px;
+
+}
+.transactionsWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
